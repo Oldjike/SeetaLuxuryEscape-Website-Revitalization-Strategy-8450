@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Quest Labs SDK styles */
+@import '@questlabs/react-sdk/dist/style.css';
+
+/* Custom scrollbar with luxury theme */ 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #f59e0b, #eab308);
+  border-radius: 6px;
+  border: 2px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #d97706, #ca8a04);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styling */
+body {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #2d2d2d 50%, #1a1a1a 75%, #000000 100%);
+  min-height: 100vh;
+}
+
+/* Custom prose styles for blog content */
+.prose {
+  max-width: none;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold text-white mt-8 mb-4 font-serif;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold text-gray-200 mt-6 mb-3;
+}
+
+.prose p {
+  @apply text-gray-300 leading-relaxed mb-4;
+}
+
+.prose ul {
+  @apply list-disc list-inside text-gray-300 mb-4 space-y-2;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-amber-400 pl-6 py-4 my-6 bg-amber-500/10 rounded-r-lg;
+}
+
+.prose blockquote p {
+  @apply text-lg italic text-amber-200 mb-0;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  }
+}
+
+.glow-animation {
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-animation {
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Loading states */
+.loading {
+  @apply animate-pulse;
+}
+
+/* Focus states for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-black;
+}
+
+/* Help Hub specific styles */
+.quest-help-hub {
+  z-index: 9999 !important;
+}
+
+/* Override Quest Labs styles to match luxury theme */
+.quest-help-hub .quest-primary-color {
+  background: linear-gradient(135deg, #f59e0b, #eab308) !important;
+  color: black !important;
+}
+
+.quest-help-hub .quest-accent-color {
+  color: #f59e0b !important;
+}
+
+.quest-help-hub .quest-button-primary {
+  background: linear-gradient(135deg, #f59e0b, #eab308) !important;
+  border-color: #f59e0b !important;
+  color: black !important;
+}
+
+.quest-help-hub .quest-button-primary:hover {
+  background: linear-gradient(135deg, #d97706, #ca8a04) !important;
+  border-color: #d97706 !important;
+}
+
+/* Custom gradient backgrounds */
+.luxury-gradient {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #2d2d2d 50%, #1a1a1a 75%, #000000 100%);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #f59e0b 0%, #eab308 50%, #d97706 100%);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f59e0b, #eab308, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Elegant hover effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2);
+}
+
+/* Glass morphism effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Luxury card styling */
+.luxury-card {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.luxury-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.15);
+}
