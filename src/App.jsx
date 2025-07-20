@@ -24,31 +24,39 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-        <Header />
-        <motion.main
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/luxury-family-travel" element={<LuxuryFamilyPage />} />
-            <Route path="/romantic-getaways" element={<RomanticGetawaysPage />} />
-            <Route path="/luxury-adventure" element={<AdventurePage />} />
-            <Route path="/air-only" element={<AirOnlyPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:slug" element={<BlogPostPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/referral" element={<ReferralPage />} />
-            <Route path="/ogl-esq-flight" element={<OGLESQFlightPage />} />
-          </Routes>
-        </motion.main>
-        <Footer />
-        <WishlistManager />
-      </div>
-    </Router>
+    <QuestProvider
+      questId={questConfig.QUEST_HELP_QUESTID}
+      apiKey={questConfig.APIKEY}
+      token={questConfig.TOKEN}
+      entityId={questConfig.ENTITYID}
+    >
+      <Router>
+        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+          <Header />
+          <motion.main
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/luxury-family-travel" element={<LuxuryFamilyPage />} />
+              <Route path="/romantic-getaways" element={<RomanticGetawaysPage />} />
+              <Route path="/luxury-adventure" element={<AdventurePage />} />
+              <Route path="/air-only" element={<AirOnlyPage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogPostPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/referral" element={<ReferralPage />} />
+              <Route path="/ogl-esq-flight" element={<OGLESQFlightPage />} />
+            </Routes>
+          </motion.main>
+          <Footer />
+          <WishlistManager />
+          <HelpHub />
+        </div>
+      </Router>
+    </QuestProvider>
   );
 }
 

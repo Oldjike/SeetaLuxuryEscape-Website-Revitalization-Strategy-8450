@@ -23,6 +23,14 @@ const Header = () => {
     window.open('https://seetaluxuryescape.pathfndr.io/search/trips#travel', '_blank');
   };
 
+  const handleLuxuryDropdownClick = () => {
+    setIsLuxuryDropdownOpen(!isLuxuryDropdownOpen);
+  };
+
+  const closeLuxuryDropdown = () => {
+    setIsLuxuryDropdownOpen(false);
+  };
+
   return (
     <header className="bg-gradient-to-r from-black via-gray-900 to-black backdrop-blur-sm shadow-2xl sticky top-0 z-40 border-b border-amber-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,27 +62,32 @@ const Header = () => {
             {/* Luxury Services Dropdown */}
             <div className="relative">
               <button
-                onMouseEnter={() => setIsLuxuryDropdownOpen(true)}
-                onMouseLeave={() => setIsLuxuryDropdownOpen(false)}
-                className="flex items-center space-x-1 text-gray-300 hover:text-amber-400 transition-colors"
+                onClick={handleLuxuryDropdownClick}
+                className="flex items-center space-x-1 text-gray-300 hover:text-amber-400 transition-colors focus:outline-none"
               >
                 <span>Luxury Travel</span>
-                <SafeIcon icon={FiChevronDown} className="w-4 h-4" />
+                <motion.div
+                  animate={{ rotate: isLuxuryDropdownOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <SafeIcon icon={FiChevronDown} className="w-4 h-4" />
+                </motion.div>
               </button>
 
+              {/* Dropdown Menu */}
               {isLuxuryDropdownOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  onMouseEnter={() => setIsLuxuryDropdownOpen(true)}
-                  onMouseLeave={() => setIsLuxuryDropdownOpen(false)}
+                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
                   className="absolute top-full left-0 mt-2 w-64 bg-gradient-to-br from-gray-900 to-black rounded-lg shadow-xl border border-amber-500/20 py-2 z-50"
                 >
                   {luxuryServices.map((service) => (
                     <Link
                       key={service.path}
                       to={service.path}
+                      onClick={closeLuxuryDropdown}
                       className={`block px-4 py-3 text-gray-300 hover:bg-amber-500/10 hover:text-amber-400 transition-colors ${
                         isActive(service.path) ? 'bg-amber-500/10 text-amber-400' : ''
                       }`}
@@ -94,7 +107,7 @@ const Header = () => {
             >
               Caribbean Air Travel
             </Link>
-            
+
             <Link
               to="/ogl-esq-flight"
               className={`text-gray-300 hover:text-blue-400 transition-colors ${
@@ -171,6 +184,7 @@ const Header = () => {
                 Home
               </Link>
 
+              {/* Mobile Luxury Services */}
               {luxuryServices.map((service) => (
                 <Link
                   key={service.path}
@@ -193,7 +207,7 @@ const Header = () => {
               >
                 Caribbean Air Travel
               </Link>
-              
+
               <Link
                 to="/ogl-esq-flight"
                 onClick={() => setIsMenuOpen(false)}
@@ -248,6 +262,14 @@ const Header = () => {
           </motion.div>
         )}
       </div>
+
+      {/* Click outside to close dropdown */}
+      {isLuxuryDropdownOpen && (
+        <div
+          className="fixed inset-0 z-30"
+          onClick={closeLuxuryDropdown}
+        />
+      )}
     </header>
   );
 };
