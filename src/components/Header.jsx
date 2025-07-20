@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiMenu, FiX, FiChevronDown, FiHelpCircle, FiGift } = FiIcons;
+const { FiMenu, FiX, FiChevronDown, FiGift } = FiIcons;
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,13 +19,6 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  const scrollToHelpHub = () => {
-    const helpButton = document.querySelector('.quest-help-hub-trigger');
-    if (helpButton) {
-      helpButton.click();
-    }
-  };
-
   const handleStartPlanning = () => {
     window.open('https://seetaluxuryescape.pathfndr.io/search/trips#travel', '_blank');
   };
@@ -34,7 +27,6 @@ const Header = () => {
     <header className="bg-gradient-to-r from-black via-gray-900 to-black backdrop-blur-sm shadow-2xl sticky top-0 z-40 border-b border-amber-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full flex items-center justify-center shadow-lg shadow-amber-500/30">
@@ -69,7 +61,7 @@ const Header = () => {
                 <span>Luxury Travel</span>
                 <SafeIcon icon={FiChevronDown} className="w-4 h-4" />
               </button>
-              
+
               {isLuxuryDropdownOpen && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
@@ -102,6 +94,15 @@ const Header = () => {
             >
               Caribbean Air Travel
             </Link>
+            
+            <Link
+              to="/ogl-esq-flight"
+              className={`text-gray-300 hover:text-blue-400 transition-colors ${
+                isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''
+              }`}
+            >
+              OGL-ESQ Flight
+            </Link>
 
             <Link
               to="/blog"
@@ -131,16 +132,6 @@ const Header = () => {
               <SafeIcon icon={FiGift} className="w-4 h-4" />
               <span>Referrals</span>
             </Link>
-
-            {/* Help Button */}
-            <button
-              onClick={scrollToHelpHub}
-              className="flex items-center space-x-2 text-gray-300 hover:text-amber-400 transition-colors"
-              title="Get Help"
-            >
-              <SafeIcon icon={FiHelpCircle} className="w-5 h-5" />
-              <span className="text-sm">Help</span>
-            </button>
 
             <motion.button
               onClick={handleStartPlanning}
@@ -202,6 +193,16 @@ const Header = () => {
               >
                 Caribbean Air Travel
               </Link>
+              
+              <Link
+                to="/ogl-esq-flight"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-gray-300 hover:text-blue-400 transition-colors px-4 py-2 ${
+                  isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''
+                }`}
+              >
+                OGL-ESQ Flight
+              </Link>
 
               <Link
                 to="/blog"
@@ -233,17 +234,6 @@ const Header = () => {
                 <SafeIcon icon={FiGift} className="w-4 h-4" />
                 <span>Referral Program</span>
               </Link>
-
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  scrollToHelpHub();
-                }}
-                className="flex items-center space-x-2 text-gray-300 hover:text-amber-400 transition-colors px-4 py-2"
-              >
-                <SafeIcon icon={FiHelpCircle} className="w-5 h-5" />
-                <span>Get Help</span>
-              </button>
 
               <button
                 onClick={() => {

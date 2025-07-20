@@ -57,7 +57,7 @@ const RomanticGetawaysPage=()=> {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30 z-10"></div>
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752149192693-95098648_couple-enjoying-romantic-sunset-picnic-on-beach.jpg')"}}></div>
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('https://images.unsplash.com/photo-1518621012420-8ab10887b471?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2086&q=80')"}}></div>
         <div className="relative z-20 text-center text-white max-w-4xl mx-auto px-4">
           <motion.h1 
             initial={{opacity: 0,y: 30}} 
