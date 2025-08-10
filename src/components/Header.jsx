@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiMenu, FiX, FiChevronDown, FiGift } = FiIcons;
+const { FiMenu, FiX, FiChevronDown, FiGift, FiExternalLink } = FiIcons;
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLuxuryDropdownOpen, setIsLuxuryDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  // Handle scroll event to change header appearance
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
 
   const luxuryServices = [
     { name: 'Luxury Family Travel', path: '/luxury-family-travel' },
@@ -31,8 +47,12 @@ const Header = () => {
     setIsLuxuryDropdownOpen(false);
   };
 
+  const handleBackToHome1 = () => {
+    window.open('https://seetaluxuryescape.com', '_blank');
+  };
+
   return (
-    <header className="bg-gradient-to-r from-black via-gray-900 to-black backdrop-blur-sm shadow-2xl sticky top-0 z-40 border-b border-amber-500/20">
+    <header className={`${scrolled ? 'bg-black/90' : 'bg-gradient-to-r from-black via-gray-900 to-black'} backdrop-blur-sm shadow-2xl sticky top-0 z-40 border-b border-amber-500/20 transition-all duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -52,12 +72,21 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-8">
             <Link
               to="/"
-              className={`text-gray-300 hover:text-amber-400 transition-colors ${
-                isActive('/') ? 'text-amber-400 font-semibold' : ''
-              }`}
+              className={`text-gray-300 hover:text-amber-400 transition-colors ${isActive('/') ? 'text-amber-400 font-semibold' : ''}`}
             >
               Home
             </Link>
+
+            {/* Back to Home 1 Button */}
+            <motion.button
+              onClick={handleBackToHome1}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center space-x-2 text-gray-300 hover:text-cyan-400 transition-colors"
+            >
+              <SafeIcon icon={FiExternalLink} className="w-4 h-4" />
+              <span>Back to Home 1</span>
+            </motion.button>
 
             {/* Luxury Services Dropdown */}
             <div className="relative">
@@ -101,36 +130,28 @@ const Header = () => {
 
             <Link
               to="/air-only"
-              className={`text-gray-300 hover:text-cyan-400 transition-colors ${
-                isActive('/air-only') ? 'text-cyan-400 font-semibold' : ''
-              }`}
+              className={`text-gray-300 hover:text-cyan-400 transition-colors ${isActive('/air-only') ? 'text-cyan-400 font-semibold' : ''}`}
             >
               Caribbean Air Travel
             </Link>
 
             <Link
               to="/ogl-esq-flight"
-              className={`text-gray-300 hover:text-blue-400 transition-colors ${
-                isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''
-              }`}
+              className={`text-gray-300 hover:text-blue-400 transition-colors ${isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''}`}
             >
               OGL-ESQ Flight
             </Link>
 
             <Link
               to="/blog"
-              className={`text-gray-300 hover:text-purple-400 transition-colors ${
-                isActive('/blog') ? 'text-purple-400 font-semibold' : ''
-              }`}
+              className={`text-gray-300 hover:text-purple-400 transition-colors ${isActive('/blog') ? 'text-purple-400 font-semibold' : ''}`}
             >
               Travel Insights
             </Link>
 
             <Link
               to="/contact"
-              className={`text-gray-300 hover:text-green-400 transition-colors ${
-                isActive('/contact') ? 'text-green-400 font-semibold' : ''
-              }`}
+              className={`text-gray-300 hover:text-green-400 transition-colors ${isActive('/contact') ? 'text-green-400 font-semibold' : ''}`}
             >
               Contact
             </Link>
@@ -177,12 +198,22 @@ const Header = () => {
               <Link
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-amber-400 transition-colors px-4 py-2 ${
-                  isActive('/') ? 'text-amber-400 font-semibold' : ''
-                }`}
+                className={`text-gray-300 hover:text-amber-400 transition-colors px-4 py-2 ${isActive('/') ? 'text-amber-400 font-semibold' : ''}`}
               >
                 Home
               </Link>
+
+              {/* Mobile Back to Home 1 Button */}
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  handleBackToHome1();
+                }}
+                className="flex items-center space-x-2 text-gray-300 hover:text-cyan-400 transition-colors px-4 py-2"
+              >
+                <SafeIcon icon={FiExternalLink} className="w-4 h-4" />
+                <span>Back to Home 1</span>
+              </button>
 
               {/* Mobile Luxury Services */}
               {luxuryServices.map((service) => (
@@ -201,9 +232,7 @@ const Header = () => {
               <Link
                 to="/air-only"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-cyan-400 transition-colors px-4 py-2 ${
-                  isActive('/air-only') ? 'text-cyan-400 font-semibold' : ''
-                }`}
+                className={`text-gray-300 hover:text-cyan-400 transition-colors px-4 py-2 ${isActive('/air-only') ? 'text-cyan-400 font-semibold' : ''}`}
               >
                 Caribbean Air Travel
               </Link>
@@ -211,9 +240,7 @@ const Header = () => {
               <Link
                 to="/ogl-esq-flight"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-blue-400 transition-colors px-4 py-2 ${
-                  isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''
-                }`}
+                className={`text-gray-300 hover:text-blue-400 transition-colors px-4 py-2 ${isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''}`}
               >
                 OGL-ESQ Flight
               </Link>
@@ -221,9 +248,7 @@ const Header = () => {
               <Link
                 to="/blog"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-purple-400 transition-colors px-4 py-2 ${
-                  isActive('/blog') ? 'text-purple-400 font-semibold' : ''
-                }`}
+                className={`text-gray-300 hover:text-purple-400 transition-colors px-4 py-2 ${isActive('/blog') ? 'text-purple-400 font-semibold' : ''}`}
               >
                 Travel Insights
               </Link>
@@ -231,9 +256,7 @@ const Header = () => {
               <Link
                 to="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-green-400 transition-colors px-4 py-2 ${
-                  isActive('/contact') ? 'text-green-400 font-semibold' : ''
-                }`}
+                className={`text-gray-300 hover:text-green-400 transition-colors px-4 py-2 ${isActive('/contact') ? 'text-green-400 font-semibold' : ''}`}
               >
                 Contact
               </Link>
@@ -264,12 +287,7 @@ const Header = () => {
       </div>
 
       {/* Click outside to close dropdown */}
-      {isLuxuryDropdownOpen && (
-        <div
-          className="fixed inset-0 z-30"
-          onClick={closeLuxuryDropdown}
-        />
-      )}
+      {isLuxuryDropdownOpen && <div className="fixed inset-0 z-30" onClick={closeLuxuryDropdown} />}
     </header>
   );
 };

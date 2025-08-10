@@ -18,3 +18,117 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* Mobile responsiveness improvements */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+  }
+  
+  p {
+    font-size: 1rem !important;
+  }
+  
+  .md\:flex-row {
+    flex-direction: column !important;
+  }
+  
+  .md\:space-x-4 > * + * {
+    margin-left: 0 !important;
+    margin-top: 1rem !important;
+  }
+  
+  /* Improved grid layout for mobile */
+  .grid-cols-3, .grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Fix button spacing on mobile */
+  .sm\:flex-row {
+    flex-direction: column !important;
+  }
+  
+  .sm\:space-x-4 > * + * {
+    margin-left: 0 !important;
+    margin-top: 1rem !important;
+  }
+}
+
+/* Fix for iframe content security policy */
+iframe {
+  border: none;
+  width: 100%;
+  min-height: 500px;
+}
+
+/* Improved focus states for accessibility */
+button:focus, a:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* Fix for Pickaxe widget */
+#pickaxe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Improved loading state */
+.loading-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-center;
+  min-height: 400px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+/* Animation classes */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fix for Content Security Policy issues */
+[style*="background-image"] {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Fix for embedded content */
+#deployment-96a74e98-952b-4ce0-ad40-3ad1e28f516e {
+  width: 100%;
+  min-height: 500px;
+}

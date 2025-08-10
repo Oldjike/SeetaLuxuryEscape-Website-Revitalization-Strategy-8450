@@ -7,9 +7,14 @@
     <title>SeetaLuxuryEscape - Personalized Luxury Travel & Caribbean Air Travel</title>
     <meta name="description" content="Experience the Seeta Signature Glow with personalized luxury travel for families, romance, and adventure. Plus reliable Caribbean air travel services." />
     
-    <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://studio.pickaxe.co; frame-src 'self' https: https://studio.pickaxe.co;">
-
+    <!-- Updated Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval';
+          script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://*.pickaxe.co;
+          frame-src 'self' https: https://*.pickaxe.co;
+          connect-src 'self' https: wss: blob:;
+          img-src 'self' https: data: blob:;
+          style-src 'self' https: 'unsafe-inline';">
+    
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -18,7 +23,7 @@
       gtag('js', new Date());
       gtag('config', 'GA_MEASUREMENT_ID');
     </script>
-
+    
     <!-- ClickRank.ai -->
     <script src="https://app.clickrank.ai/tracking.js" data-site-id="YOUR_SITE_ID"></script>
     
