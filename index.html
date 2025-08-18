@@ -7,13 +7,15 @@
     <title>SeetaLuxuryEscape - Personalized Luxury Travel & Caribbean Air Travel</title>
     <meta name="description" content="Experience the Seeta Signature Glow with personalized luxury travel for families, romance, and adventure. Plus reliable Caribbean air travel services." />
     
-    <!-- Updated Content Security Policy -->
+    <!-- Enhanced Content Security Policy with better Pickaxe support -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval';
-          script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://*.pickaxe.co;
-          frame-src 'self' https: https://*.pickaxe.co;
-          connect-src 'self' https: wss: blob:;
+          script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://*.pickaxe.co https://studio.pickaxe.co;
+          frame-src 'self' https: https://*.pickaxe.co https://studio.pickaxe.co;
+          connect-src 'self' https: wss: blob: https://*.pickaxe.co https://studio.pickaxe.co;
           img-src 'self' https: data: blob:;
-          style-src 'self' https: 'unsafe-inline';">
+          style-src 'self' https: 'unsafe-inline';
+          font-src 'self' https: data:;
+          worker-src 'self' blob:;">
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -31,6 +33,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="dns-prefetch" href="https://studio.pickaxe.co">
+    <link rel="preconnect" href="https://studio.pickaxe.co" crossorigin>
   </head>
   <body>
     <div id="root"></div>

@@ -130,6 +130,10 @@ const ProductRecommendations = ({
     }
   };
 
+  const handleViewDetails = () => {
+    window.open('https://seetaluxuryescape.pathfndr.io/search/trips', '_blank');
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-gray-900 to-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -225,7 +229,10 @@ const ProductRecommendations = ({
                     </div>
                   </div>
                   
-                  <button className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-black py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all flex items-center justify-center space-x-2">
+                  <button 
+                    onClick={handleViewDetails}
+                    className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-black py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all flex items-center justify-center space-x-2"
+                  >
                     <span>View Details</span>
                     <SafeIcon icon={FiArrowRight} className="w-4 h-4" />
                   </button>
@@ -237,6 +244,7 @@ const ProductRecommendations = ({
         
         <div className="text-center mt-10">
           <motion.button 
+            onClick={handleViewDetails}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="border-2 border-amber-500 text-amber-400 px-8 py-3 rounded-full font-semibold hover:bg-amber-500/10 transition-all inline-flex items-center space-x-2"

@@ -297,6 +297,7 @@ const WishlistManager = () => {
                                 
                                 <div className="mt-4">
                                   <motion.button 
+                                    onClick={() => window.open('https://seetaluxuryescape.pathfndr.io/search/trips', '_blank')}
                                     whileHover={{ scale: 1.05 }}
                                     className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-black py-2 px-4 rounded-lg font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all text-sm"
                                   >
@@ -317,12 +318,13 @@ const WishlistManager = () => {
                         <p className="text-sm text-gray-300 mb-4">
                           Let our experts turn your wishlist into an extraordinary journey.
                         </p>
-                        <motion.button 
+                        <motion.a
+                          href="tel:+19058866262"
                           whileHover={{ scale: 1.05 }}
-                          className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-black py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all"
+                          className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-black py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all block text-center"
                         >
                           Contact Our Travel Experts
-                        </motion.button>
+                        </motion.a>
                       </div>
                     )}
                   </>
