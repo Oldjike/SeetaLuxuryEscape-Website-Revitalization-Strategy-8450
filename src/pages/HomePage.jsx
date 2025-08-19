@@ -100,7 +100,6 @@ const HomePage = () => {
               Seeta Signature Glow
             </span>
           </motion.h1>
-          
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -109,7 +108,6 @@ const HomePage = () => {
           >
             Escape the overwhelm. Let our expert curators craft your perfect luxury getaway while you focus on what matters most - creating unforgettable moments.
           </motion.p>
-          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -124,13 +122,12 @@ const HomePage = () => {
             >
               Start Planning Your Escape
             </motion.button>
-            
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center justify-center"
             >
-              <a 
+              <a
                 href="tel:+19058866262"
                 className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all flex items-center space-x-2"
               >
@@ -180,7 +177,6 @@ const HomePage = () => {
                   <li>• Complexity of planning for different family needs and preferences</li>
                 </ul>
               </div>
-              
               <div className="bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-500/20 p-6 rounded-lg backdrop-blur-sm">
                 <h3 className="text-xl font-semibold text-amber-400 mb-3">The Seeta Solution</h3>
                 <ul className="space-y-2 text-gray-300">
@@ -198,7 +194,7 @@ const HomePage = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <img 
+              <img
                 src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                 alt="Luxury travel destination"
                 className="rounded-lg shadow-2xl"
@@ -267,35 +263,35 @@ const HomePage = () => {
               >
                 {/* Service Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <img 
+                  <img
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  
                   {/* Wishlist Button */}
                   <div className="absolute top-4 right-4">
-                    <WishlistButton item={{
-                      id: service.id,
-                      title: service.title,
-                      description: service.description,
-                      image: service.image,
-                      price: service.price,
-                      type: 'service'
-                    }} />
+                    <WishlistButton
+                      item={{
+                        id: service.id,
+                        title: service.title,
+                        description: service.description,
+                        image: service.image,
+                        price: service.price,
+                        type: 'service'
+                      }}
+                    />
                   </div>
-                  
                   {/* Social Sharing */}
                   <div className="absolute top-4 left-4">
-                    <SocialSharing 
+                    <SocialSharing
                       title={`${service.title} - SeetaLuxuryEscape`}
                       description={service.description}
                       image={service.image}
                     />
                   </div>
                 </div>
-
+                
                 <div className="p-8">
                   <div className="text-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
@@ -325,7 +321,6 @@ const HomePage = () => {
                         Explore {service.title}
                       </motion.button>
                     </Link>
-                    
                     <motion.button
                       onClick={() => setShowCheckout(true)}
                       whileHover={{ scale: 1.05 }}
@@ -392,7 +387,7 @@ const HomePage = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <img 
+              <img
                 src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
                 alt="Caribbean islands aerial view"
                 className="rounded-lg shadow-2xl"
@@ -543,7 +538,6 @@ const HomePage = () => {
           >
             Let us transform your travel dreams into extraordinary reality. Start your journey with the Seeta Signature Glow today.
           </motion.p>
-          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -558,7 +552,6 @@ const HomePage = () => {
             >
               Start Planning Now
             </motion.button>
-            
             <Link to="/contact">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -577,7 +570,7 @@ const HomePage = () => {
       <WishlistManager />
 
       {/* Checkout Modal */}
-      <CheckoutOptimization 
+      <CheckoutOptimization
         isVisible={showCheckout}
         onClose={() => setShowCheckout(false)}
       />

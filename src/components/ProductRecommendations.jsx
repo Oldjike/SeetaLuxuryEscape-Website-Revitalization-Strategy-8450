@@ -13,21 +13,20 @@ const ProductRecommendations = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
-  
+
   // Sample product data based on type
   useEffect(() => {
     // Simulate loading data from an API
     setIsLoading(true);
-    
     setTimeout(() => {
       const productData = getProductsByType(type);
       setProducts(productData);
       setIsLoading(false);
     }, 500);
   }, [type]);
-  
+
   const getProductsByType = (productType) => {
-    switch(productType) {
+    switch (productType) {
       case 'flights':
         return [
           {
@@ -61,6 +60,7 @@ const ProductRecommendations = ({
             rating: 4.9
           }
         ];
+
       case 'hotels':
         return [
           {
@@ -94,6 +94,7 @@ const ProductRecommendations = ({
             rating: 4.8
           }
         ];
+
       default: // luxury
         return [
           {
@@ -138,7 +139,7 @@ const ProductRecommendations = ({
     <section className="py-20 bg-gradient-to-br from-gray-900 to-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -146,7 +147,7 @@ const ProductRecommendations = ({
           >
             {title}
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -174,10 +175,10 @@ const ProductRecommendations = ({
                 className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl shadow-lg hover:shadow-xl hover:border-amber-500/30 transition-all group overflow-hidden"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={product.image} 
-                    alt={product.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src = 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
@@ -187,7 +188,7 @@ const ProductRecommendations = ({
                   
                   {/* Wishlist Button */}
                   <div className="absolute top-4 right-4">
-                    <WishlistButton 
+                    <WishlistButton
                       item={{
                         id: product.id,
                         title: product.title,
@@ -196,7 +197,7 @@ const ProductRecommendations = ({
                         price: product.price,
                         location: product.location,
                         type: type
-                      }} 
+                      }}
                     />
                   </div>
                   
@@ -229,7 +230,7 @@ const ProductRecommendations = ({
                     </div>
                   </div>
                   
-                  <button 
+                  <button
                     onClick={handleViewDetails}
                     className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-black py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all flex items-center justify-center space-x-2"
                   >
@@ -241,9 +242,9 @@ const ProductRecommendations = ({
             ))}
           </div>
         )}
-        
+
         <div className="text-center mt-10">
-          <motion.button 
+          <motion.button
             onClick={handleViewDetails}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

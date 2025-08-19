@@ -53,7 +53,7 @@ const OGLESQFlightPage = () => {
     }
     
     // Clear existing deployment div
-    const deploymentDiv = document.getElementById('deployment-46f5c045-be7f-4852-a296-eb974dca1671');
+    const deploymentDiv = document.getElementById('deployment-5b3ed872-f5fe-4f09-aa05-c8be8e88710e');
     if (deploymentDiv) {
       deploymentDiv.innerHTML = '';
     }
@@ -61,10 +61,10 @@ const OGLESQFlightPage = () => {
 
   useEffect(() => {
     // Create deployment div if it doesn't exist
-    let deploymentDiv = document.getElementById('deployment-46f5c045-be7f-4852-a296-eb974dca1671');
+    let deploymentDiv = document.getElementById('deployment-5b3ed872-f5fe-4f09-aa05-c8be8e88710e');
     if (!deploymentDiv) {
       deploymentDiv = document.createElement('div');
-      deploymentDiv.id = 'deployment-46f5c045-be7f-4852-a296-eb974dca1671';
+      deploymentDiv.id = 'deployment-5b3ed872-f5fe-4f09-aa05-c8be8e88710e';
       
       // Make sure the container exists before appending
       const pickaxeContainer = document.getElementById('pickaxe-container');

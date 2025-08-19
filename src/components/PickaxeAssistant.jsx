@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiMessageCircle, FiSend, FiUser, FiBot, FiCalendar, FiMapPin, FiUsers, FiDollarSign, FiHeart } = FiIcons;
+const { FiMessageCircle } = FiIcons;
 
 const PickaxeAssistant = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   const openPickaxeAssistant = () => {
-    // Open Pickaxe Travel Assistant in a new window
+    // Updated URL with working Pickaxe Travel Assistant
     window.open('https://studio.pickaxe.co/STUDIOY9KXG1ZNYKZAY4U/Seetaluxuryescape_Travel_Assistant_BYQV4', '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes');
   };
 

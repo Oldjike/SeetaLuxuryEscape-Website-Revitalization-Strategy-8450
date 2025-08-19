@@ -16,7 +16,10 @@ const ContactPage = () => {
   });
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -310,7 +313,7 @@ const ContactPage = () => {
               Frequently Asked Questions
             </motion.h2>
           </div>
-
+          
           <div className="space-y-8">
             {[
               {

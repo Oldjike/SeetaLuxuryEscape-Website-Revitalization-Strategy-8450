@@ -52,7 +52,9 @@ const Header = () => {
   };
 
   return (
-    <header className={`${scrolled ? 'bg-black/90' : 'bg-gradient-to-r from-black via-gray-900 to-black'} backdrop-blur-sm shadow-2xl sticky top-0 z-40 border-b border-amber-500/20 transition-all duration-300`}>
+    <header className={`${
+      scrolled ? 'bg-black/90' : 'bg-gradient-to-r from-black via-gray-900 to-black'
+    } backdrop-blur-sm shadow-2xl sticky top-0 z-40 border-b border-amber-500/20 transition-all duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -72,7 +74,9 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-8">
             <Link
               to="/"
-              className={`text-gray-300 hover:text-amber-400 transition-colors ${isActive('/') ? 'text-amber-400 font-semibold' : ''}`}
+              className={`text-gray-300 hover:text-amber-400 transition-colors ${
+                isActive('/') ? 'text-amber-400 font-semibold' : ''
+              }`}
             >
               Home
             </Link>
@@ -130,28 +134,36 @@ const Header = () => {
 
             <Link
               to="/air-only"
-              className={`text-gray-300 hover:text-cyan-400 transition-colors ${isActive('/air-only') ? 'text-cyan-400 font-semibold' : ''}`}
+              className={`text-gray-300 hover:text-cyan-400 transition-colors ${
+                isActive('/air-only') ? 'text-cyan-400 font-semibold' : ''
+              }`}
             >
               Caribbean Air Travel
             </Link>
 
             <Link
               to="/ogl-esq-flight"
-              className={`text-gray-300 hover:text-blue-400 transition-colors ${isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''}`}
+              className={`text-gray-300 hover:text-blue-400 transition-colors ${
+                isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''
+              }`}
             >
               OGL-ESQ Flight
             </Link>
 
             <Link
               to="/blog"
-              className={`text-gray-300 hover:text-purple-400 transition-colors ${isActive('/blog') ? 'text-purple-400 font-semibold' : ''}`}
+              className={`text-gray-300 hover:text-purple-400 transition-colors ${
+                isActive('/blog') ? 'text-purple-400 font-semibold' : ''
+              }`}
             >
               Travel Insights
             </Link>
 
             <Link
               to="/contact"
-              className={`text-gray-300 hover:text-green-400 transition-colors ${isActive('/contact') ? 'text-green-400 font-semibold' : ''}`}
+              className={`text-gray-300 hover:text-green-400 transition-colors ${
+                isActive('/contact') ? 'text-green-400 font-semibold' : ''
+              }`}
             >
               Contact
             </Link>
@@ -198,7 +210,9 @@ const Header = () => {
               <Link
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-amber-400 transition-colors px-4 py-2 ${isActive('/') ? 'text-amber-400 font-semibold' : ''}`}
+                className={`text-gray-300 hover:text-amber-400 transition-colors px-4 py-2 ${
+                  isActive('/') ? 'text-amber-400 font-semibold' : ''
+                }`}
               >
                 Home
               </Link>
@@ -232,7 +246,9 @@ const Header = () => {
               <Link
                 to="/air-only"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-cyan-400 transition-colors px-4 py-2 ${isActive('/air-only') ? 'text-cyan-400 font-semibold' : ''}`}
+                className={`text-gray-300 hover:text-cyan-400 transition-colors px-4 py-2 ${
+                  isActive('/air-only') ? 'text-cyan-400 font-semibold' : ''
+                }`}
               >
                 Caribbean Air Travel
               </Link>
@@ -240,7 +256,9 @@ const Header = () => {
               <Link
                 to="/ogl-esq-flight"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-blue-400 transition-colors px-4 py-2 ${isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''}`}
+                className={`text-gray-300 hover:text-blue-400 transition-colors px-4 py-2 ${
+                  isActive('/ogl-esq-flight') ? 'text-blue-400 font-semibold' : ''
+                }`}
               >
                 OGL-ESQ Flight
               </Link>
@@ -248,7 +266,9 @@ const Header = () => {
               <Link
                 to="/blog"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-purple-400 transition-colors px-4 py-2 ${isActive('/blog') ? 'text-purple-400 font-semibold' : ''}`}
+                className={`text-gray-300 hover:text-purple-400 transition-colors px-4 py-2 ${
+                  isActive('/blog') ? 'text-purple-400 font-semibold' : ''
+                }`}
               >
                 Travel Insights
               </Link>
@@ -256,7 +276,9 @@ const Header = () => {
               <Link
                 to="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-gray-300 hover:text-green-400 transition-colors px-4 py-2 ${isActive('/contact') ? 'text-green-400 font-semibold' : ''}`}
+                className={`text-gray-300 hover:text-green-400 transition-colors px-4 py-2 ${
+                  isActive('/contact') ? 'text-green-400 font-semibold' : ''
+                }`}
               >
                 Contact
               </Link>
